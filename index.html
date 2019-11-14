@@ -1,25 +1,64 @@
 <html>
   <head>
     <title>Startup Comic</title>
-    <style type="text/stylesheet" src="goodstuff.css"></style>
+    <link href="unicorn_poop.css" rel="stylesheet">
   </head>
   <body>
-    <head>
-      <img src="" alt="">
+    <header>
+      <!-- <img src="" alt=""> -->
       <h1>Startup Comic</h1>
-    </head>
+    </header>
     <section>
-      <a href="">
-      </a>
-      <a href="">
-      </a>
-        <img src="illustrations/01-so_it_begins/01-so_it_begins_v1.png" 
+        <img id="comic" src="illustrations/01-so_it_begins/01-so_it_begins_v1.png" 
         alt="So It Begins"
         >
     </section>
+    <footer>
+      <ul>
+        <li><a href="">insta</a></li>
+        <li><a href="">twit</a></li>
+        <li><a href="">face</a></li>
+      </ul>
+    </footer>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+        var comic = document.getElementById('comic');
+        var comicRect = document.getElementById('comic').getBoundingClientRect();
         
+
+        comic.addEventListener('click', getClickCoordinates);
+        function getClickCoordinates(e) {
+          let comicWidth = comicRect.width;
+          console.log(e.clientX  - comicRect.left);
+          if (e.clientX - comicRect.left <= comicRect.width / 4) {
+            console.log('first quarter');
+          } else if (e.clientX - comicRect.left <= comicRect.width / 2 && e.clientX-comicRect.left > comicRect.width/4) {
+            console.log('second quarter');
+          } else if (e.clientX - comicRect.left <= comicRect.width * 0.75 && e.clientX-comicRect.left > comicRect.width / 2) {
+            console.log('third quarter');
+          } else if (e.clientX - comicRect.left <= comicRect.width && e.clientX-comicRect.left > comicRect.width * 0.75) {
+            console.log('fourth quarter');
+          }
+
+        };
+
+        function next() {
+
+        };
+        function last() {
+
+        };
+        function back() {
+
+        };
+        function first() {
+
+        };
+        // document.addEventListener('click', logKey);
+        // function logKey(e) {
+        //     console.log(e.screenX,e.screenY);
+        //     console.log(e.clientX,e.clientY);
+        // }
       });
     </script>
   </body>

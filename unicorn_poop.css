@@ -1,0 +1,28 @@
+body {
+margin: 0;
+padding: 0;
+font-family: sans-serif;
+text-align: center;
+display: flex;
+flex-direction: column;
+}
+
+header {
+    margin: auto;
+}
+
+section {
+    max-width:1000px;
+    margin: auto;
+    text-align: center;
+}
+
+section img {
+    width: 100%;
+    user-drag: none; 
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
