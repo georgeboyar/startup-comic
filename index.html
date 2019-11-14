@@ -9,41 +9,43 @@
       <h1>Startup Comic</h1>
     </header>
     <section>
-        <img id="comic" src="illustrations/01-so_it_begins/01-so_it_begins_v1.png" 
+        <img id="comic" src="illustrations/01-so_it_begins/comic1.png" 
         alt="So It Begins"
         >
     </section>
     <footer>
       <ul>
-        <li><a href="">insta</a></li>
-        <li><a href="">twit</a></li>
-        <li><a href="">face</a></li>
+        <li><a href=""><img class="icon" src="dist/instagram.svg" alt="instagram-icon"></a></li>
+        <li><a href=""><img class="icon" src="dist/twitter.svg" alt="twitter-icon"></a></li>
+        <li><a href=""><img class="icon" src="dist/facebook.svg" alt="facebook-icon"></a></li>
+        <li><a href="https://www.reddit.com/user/unicorndroppingz"><img class="icon" src="dist/reddit.svg" alt="reddit-icon"></a></li>
       </ul>
     </footer>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
         var comic = document.getElementById('comic');
         var comicRect = document.getElementById('comic').getBoundingClientRect();
-        
 
         comic.addEventListener('click', getClickCoordinates);
         function getClickCoordinates(e) {
           let comicWidth = comicRect.width;
           console.log(e.clientX  - comicRect.left);
           if (e.clientX - comicRect.left <= comicRect.width / 4) {
-            console.log('first quarter');
+            first();
           } else if (e.clientX - comicRect.left <= comicRect.width / 2 && e.clientX-comicRect.left > comicRect.width/4) {
-            console.log('second quarter');
+            back();
           } else if (e.clientX - comicRect.left <= comicRect.width * 0.75 && e.clientX-comicRect.left > comicRect.width / 2) {
-            console.log('third quarter');
+            next();
           } else if (e.clientX - comicRect.left <= comicRect.width && e.clientX-comicRect.left > comicRect.width * 0.75) {
-            console.log('fourth quarter');
+            last();
           }
-
         };
 
-        function next() {
+        let index = comic.src.toString;
+        funciton ()
 
+        function next() {
+          comic.src="comic-" + index;
         };
         function last() {
 
@@ -54,11 +56,6 @@
         function first() {
 
         };
-        // document.addEventListener('click', logKey);
-        // function logKey(e) {
-        //     console.log(e.screenX,e.screenY);
-        //     console.log(e.clientX,e.clientY);
-        // }
       });
     </script>
   </body>
