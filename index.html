@@ -9,10 +9,18 @@
       <h1>Startup Comic</h1>
     </header>
     <section>
-        <img id="comic" src="illustrations/01-so_it_begins/comic1.png" 
+        <img id="comic" src="./comics/comic1.png" 
         alt="So It Begins"
         >
     </section>
+    <nav>
+      <ul>
+        <li><button id="first"> << </button></li>
+        <li><button id="back"> < </button></li>
+        <li><button id="next"> > </button></li>
+        <li><button id="last"> >> </button></li>
+      </ul>
+    </nav>
     <footer>
       <ul>
         <li><a href=""><img class="icon" src="dist/instagram.svg" alt="instagram-icon"></a></li>
@@ -21,42 +29,74 @@
         <li><a href="https://www.reddit.com/user/unicorndroppingz"><img class="icon" src="dist/reddit.svg" alt="reddit-icon"></a></li>
       </ul>
     </footer>
+  </body>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
         var comic = document.getElementById('comic');
         var comicRect = document.getElementById('comic').getBoundingClientRect();
 
+        var back = document.getElementById('back');
+        var next = document.getElementById('next');
+        var first = document.getElementById('first');
+        var last = document.getElementById('last');
+        var buttonArray = [first,back,next,last];
+
+        buttonArray.forEach(element => {
+          element.addEventListener('click', event => {
+            matchNavigate(element);
+          });
+        });
+
+        function matchNavigate(element) {
+          let name = element.toString();
+          console.log(name);
+        }
+
         comic.addEventListener('click', getClickCoordinates);
         function getClickCoordinates(e) {
           let comicWidth = comicRect.width;
           console.log(e.clientX  - comicRect.left);
-          if (e.clientX - comicRect.left <= comicRect.width / 4) {
-            first();
-          } else if (e.clientX - comicRect.left <= comicRect.width / 2 && e.clientX-comicRect.left > comicRect.width/4) {
+          if (e.clientX - comicRect.left <= comicRect.width / 2) {
             back();
-          } else if (e.clientX - comicRect.left <= comicRect.width * 0.75 && e.clientX-comicRect.left > comicRect.width / 2) {
+          } else if (e.clientX-comicRect.left > comicRect.width / 2) {
             next();
-          } else if (e.clientX - comicRect.left <= comicRect.width && e.clientX-comicRect.left > comicRect.width * 0.75) {
-            last();
           }
         };
 
-        let index = comic.src.toString;
-        funciton ()
+        let firstname = comic.src.toString();
+
+        function getIndex() {
+          let index = "";
+          let filename = comic.src.toString();
+          console.log(filename);
+          if (!isNaN(filename.charAt(filename.length - 7))) {
+            index = filename.charAt(filename.length - 7);
+          }
+          if (!isNaN(filename.charAt(filename.length - 6))) {
+            index = index + filename.charAt(filename.length - 6)
+          }
+          if (!isNaN(filename.charAt(filename.length - 5))) {
+            index = index + filename.charAt(filename.length - 5)
+          }
+          index = parseInt(index);
+          console.log(index);
+          return index;
+        };
 
         function next() {
-          comic.src="comic-" + index;
+          count = getIndex() + 1;
+          comic.src="./comics/comic" + count + ".png";
         };
         function last() {
-
-        };
-        function back() {
-
         };
         function first() {
-
+          comic.src=firstname;
+        };
+        function back() {
+          count = getIndex() - 1;
+          comic.src="./comics/comic" + count + ".png";
+          console.log('first');
         };
       });
     </script>
-  </body>
 </html>
