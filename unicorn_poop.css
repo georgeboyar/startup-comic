@@ -89,6 +89,15 @@ nav ul {
 
 button {
     width: 60px;
+    cursor: pointer;
+}
+
+button:active {
+    outline: none;
+}
+
+button:focus {
+    outline: none;
 }
 
 @media screen and (max-device-width: 900px) {

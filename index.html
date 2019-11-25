@@ -15,10 +15,10 @@
     </section>
     <nav>
       <ul>
-        <li><button id="first"> << </button></li>
-        <li><button id="back"> < </button></li>
-        <li><button id="next"> > </button></li>
-        <li><button id="last"> >> </button></li>
+        <li><button id="first" name="first"> << </button></li>
+        <li><button id="back" name="back"> < </button></li>
+        <li><button id="next" name="next"> > </button></li>
+        <li><button id="last" name="last"> >> </button></li>
       </ul>
     </nav>
     <footer>
@@ -41,25 +41,53 @@
         var last = document.getElementById('last');
         var buttonArray = [first,back,next,last];
 
+        function gonext() {
+          count = getIndex() + 1;
+          comic.src="./comics/comic" + count + ".png";
+        };
+
+        function golast() {
+          // implement me! Count how many things are in the folder.
+          // comic.src="./comics/comic" +  + ".png";
+        };
+
+        function gofirst() {
+          comic.src=firstname;
+        };
+
+        function goback() {
+          count = getIndex() - 1;
+          comic.src="./comics/comic" + count + ".png";
+        }
+
+        function matchNavigate(element) {
+          let name = element.name;
+          if (name == 'back') {
+            goback();
+          } else if (name == 'first') {
+            gofirst();
+          } else if (name == 'last') {
+            golast();
+          } else if (name == 'next') {
+            gonext();
+          };
+        };
+
         buttonArray.forEach(element => {
           element.addEventListener('click', event => {
             matchNavigate(element);
           });
         });
 
-        function matchNavigate(element) {
-          let name = element.toString();
-          console.log(name);
-        }
-
         comic.addEventListener('click', getClickCoordinates);
+
         function getClickCoordinates(e) {
           let comicWidth = comicRect.width;
           console.log(e.clientX  - comicRect.left);
           if (e.clientX - comicRect.left <= comicRect.width / 2) {
-            back();
+            goback();
           } else if (e.clientX-comicRect.left > comicRect.width / 2) {
-            next();
+            gonext();
           }
         };
 
@@ -81,21 +109,6 @@
           index = parseInt(index);
           console.log(index);
           return index;
-        };
-
-        function next() {
-          count = getIndex() + 1;
-          comic.src="./comics/comic" + count + ".png";
-        };
-        function last() {
-        };
-        function first() {
-          comic.src=firstname;
-        };
-        function back() {
-          count = getIndex() - 1;
-          comic.src="./comics/comic" + count + ".png";
-          console.log('first');
         };
       });
     </script>
