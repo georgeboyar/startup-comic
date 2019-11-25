@@ -15,9 +15,9 @@
     </section>
     <nav>
       <ul>
-        <li><button id="first" name="first"> << </button></li>
-        <li><button id="back" name="back"> < </button></li>
-        <li><button id="next" name="next"> > </button></li>
+        <li><button id="first" name="first"> <img src="dist/first.png" alt="first" class="button-img"></button></li>
+        <li><button id="back" name="back"> <img src="dist/back.png" alt="back" class="button-img"></button></li>
+        <li><button id="next" name="next"> <img src="dist/next.png" alt="next" class="button-img"></button></li>
         <!-- <li><button id="last" name="last"> >> </button></li> -->
       </ul>
     </nav>
@@ -39,7 +39,7 @@
         var next = document.getElementById('next');
         var first = document.getElementById('first');
         var last = document.getElementById('last');
-        var buttonArray = [first,back,next,last];
+        var buttonArray = [first,back,next];
 
         function gonext() {
           count = getIndex() + 1;
