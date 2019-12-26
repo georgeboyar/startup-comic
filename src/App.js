@@ -74,20 +74,26 @@ function App() {
               </a>
             </li>
             <li>
-              <img id="twitter" src={`/dist/twitter.svg`} alt="twitter-icon" />
+              <a href="">
+                <img
+                  id="twitter"
+                  src={`/dist/twitter.svg`}
+                  alt="twitter-icon"
+                />
+              </a>
             </li>
             <li>
               <a href="">
                 <img
-                  class="icon"
-                  src="`/dist/facebook.svg"
+                  id="facebook"
+                  src={`/dist/facebook.svg`}
                   alt="facebook-icon"
                 />
               </a>
             </li>
             <li>
               <a href="https://www.reddit.com/user/unicorndroppingz">
-                <img class="icon" src="`/dist/reddit.svg" alt="reddit-icon" />
+                <img id="reddit" src={`/dist/reddit.svg`} alt="reddit-icon" />
               </a>
             </li>
           </ul>
