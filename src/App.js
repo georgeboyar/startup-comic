@@ -1,6 +1,5 @@
 import React, { Fragment } from "react";
 import { BrowserRouter, Route, useParams, Link } from "react-router-dom";
-import logo from "./logo.svg";
 import "./App.css";
 import TwitterIcon from "./icons/Twitter.js";
 import FacebookIcon from "./icons/Facebook.js";
@@ -9,7 +8,6 @@ import InstagramIcon from "./icons/Instagram.js";
 
 const MAX_IMAGES = 28;
 const currentComicId = MAX_IMAGES;
-const currentComic = MAX_IMAGES;
 
 function IndividualComic() {
   const params = useParams();
@@ -115,16 +113,6 @@ function App() {
                       src={require("./icons/back.png")}
                       style={{ width: "82px", height: "40px" }}
                       alt="Back"
-                    />
-                  </Link>
-                </li>
-                <li>
-                  <Link to={`/comic/${currentComicId + 1}.png`}>
-                    <img
-                      id="Next"
-                      src={require("./icons/next.png")}
-                      style={{ width: "82px", height: "40px" }}
-                      alt="Next"
                     />
                   </Link>
                 </li>
