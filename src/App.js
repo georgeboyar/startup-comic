@@ -83,7 +83,7 @@ function App() {
     <Fragment>
       <BrowserRouter>
         <header>
-          <h1>Startup Comic</h1>
+          <h1 style={{ fontSize: "8vw" }}>Startup Comic</h1>
         </header>
         <nav>
           <Route path="/comic/:comicId">
