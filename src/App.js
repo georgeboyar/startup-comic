@@ -7,11 +7,14 @@ import RedditIcon from "./icons/Reddit.js";
 import InstagramIcon from "./icons/Instagram.js";
 
 const MAX_IMAGES = 28;
-const currentComicId = MAX_IMAGES;
 
 function IndividualComic() {
   const params = useParams();
-  const currentComicId = parseInt(params.comicId, 10);
+  var currentComicId = parseInt(params.comicId, 10);
+  {
+    (isNaN(currentComicId) || currentComicId > MAX_IMAGES) &&
+      (currentComicId = MAX_IMAGES);
+  }
   return (
     <section>
       <img
@@ -33,7 +36,7 @@ function IndividualComic() {
           </li>
           {currentComicId > 1 && (
             <li>
-              <Link to={`/comic/${currentComicId - 1}.png`}>
+              <Link to={`/comic/${currentComicId - 1}`}>
                 <img
                   id="Back"
                   className="buttom img"
@@ -46,7 +49,7 @@ function IndividualComic() {
           )}
           {currentComicId < MAX_IMAGES && (
             <li>
-              <Link to={`/comic/${currentComicId + 1}.png`}>
+              <Link to={`/comic/${currentComicId + 1}`}>
                 <img
                   id="Next"
                   src={require("./icons/next.png")}
@@ -58,7 +61,7 @@ function IndividualComic() {
           )}
           {currentComicId < MAX_IMAGES && (
             <li>
-              <Link to={`/comic/${MAX_IMAGES}.png`}>
+              <Link to={`/comic/${MAX_IMAGES}`}>
                 <img
                   id="Most Recent"
                   src={require("./icons/most recent.png")}
@@ -85,49 +88,8 @@ function App() {
           <Route path="/comic/:comicId">
             <IndividualComic />
           </Route>
-
           <Route exact path="/">
-            <img
-              id="comic"
-              src={`/comics/comic${currentComicId}.png`}
-              alt="So It Begins"
-            />
-
-            <div>
-              <ul>
-                <li>
-                  <Link to={`/comic/1`}>
-                    <img
-                      id="Beginning"
-                      src={require("./icons/first alt 2.png")}
-                      style={{ width: "82px", height: "40px" }}
-                      alt="Beginning"
-                    />
-                  </Link>
-                </li>
-                <li>
-                  <Link to={`/comic/${currentComicId - 1}.png`}>
-                    <img
-                      id="Back"
-                      className="buttom img"
-                      src={require("./icons/back.png")}
-                      style={{ width: "82px", height: "40px" }}
-                      alt="Back"
-                    />
-                  </Link>
-                </li>
-                <li>
-                  <Link to={`/comic/${MAX_IMAGES}.png`}>
-                    <img
-                      id="Most Recent"
-                      src={require("./icons/most recent.png")}
-                      style={{ width: "82px", height: "40px" }}
-                      alt="Most Recent"
-                    />
-                  </Link>
-                </li>
-              </ul>
-            </div>
+            <IndividualComic />
           </Route>
         </nav>
         <footer>
