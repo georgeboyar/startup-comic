@@ -20,6 +20,7 @@ function IndividualComic() {
       <img
         id="comic"
         src={`/comics/comic${currentComicId}.png`}
+        style={{ maxWidth: "900px" }}
         alt="So It Begins"
       />
       <div>
