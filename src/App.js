@@ -83,7 +83,13 @@ function App() {
     <Fragment>
       <BrowserRouter>
         <header>
-          <h1 style={{ fontSize: "8vw" }}>Startup Comic</h1>
+          {/* <h1 style={{ fontSize: "5vw" }}>Startup Comic</h1> */}
+          <img
+            id="banner"
+            src={`/cover v3.png`}
+            style={{ maxWidth: "100%" }}
+            alt="Startup Comic"
+          />
         </header>
         <nav>
           <Route path="/comic/:comicId">
