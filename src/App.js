@@ -6,7 +6,7 @@ import FacebookIcon from "./icons/Facebook.js";
 import RedditIcon from "./icons/Reddit.js";
 import InstagramIcon from "./icons/Instagram.js";
 
-const MAX_IMAGES = 36;
+const MAX_IMAGES = 37;
 
 function IndividualComic() {
   const params = useParams();
