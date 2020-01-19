@@ -12,8 +12,10 @@ function IndividualComic() {
   const params = useParams();
   var currentComicId = parseInt(params.comicId, 10);
   {
-    (isNaN(currentComicId) || currentComicId > MAX_IMAGES) &&
+    (isNaN(currentComicId) || currentComicId > MAX_IMAGES ) &&
       (currentComicId = MAX_IMAGES);
+    (currentComicId < 1 ) &&
+      (currentComicId = 1);
   }
   return (
     <section>
@@ -29,13 +31,12 @@ function IndividualComic() {
             <Link to={`/comic/1`}>
               <img
                 id="Beginning"
-                src={require("./icons/first alt 2.png")}
+                src={require("./icons/first.png")}
                 style={{ width: "82px", height: "40px" }}
                 alt="Beginning"
               />
             </Link>
           </li>
-          {currentComicId > 1 && (
             <li>
               <Link to={`/comic/${currentComicId - 1}`}>
                 <img
@@ -47,8 +48,17 @@ function IndividualComic() {
                 />
               </Link>
             </li>
-          )}
-          {currentComicId < MAX_IMAGES && (
+            <li>
+              <Link to={`/comic/${Math.floor(Math.random() * MAX_IMAGES + 1)}`}>
+                <img
+                  id="Random"
+                  className="buttom img"
+                  src={require("./icons/random.png")}
+                  style={{ width: "82px", height: "40px" }}
+                  alt="Back"
+                />
+              </Link>
+            </li>
             <li>
               <Link to={`/comic/${currentComicId + 1}`}>
                 <img
@@ -59,8 +69,6 @@ function IndividualComic() {
                 />
               </Link>
             </li>
-          )}
-          {currentComicId < MAX_IMAGES && (
             <li>
               <Link to={`/comic/${MAX_IMAGES}`}>
                 <img
@@ -71,7 +79,6 @@ function IndividualComic() {
                 />
               </Link>
             </li>
-          )}
         </ul>
       </div>
     </section>
