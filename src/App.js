@@ -9,7 +9,12 @@ import InstagramIcon from "./icons/Instagram.js";
 import ReactGA from 'react-ga';
 
 const trackingId = "UA-138331555-1"; // Replace with your Google Analytics tracking ID
-ReactGA.initialize(trackingId);
+//ReactGA.initialize(trackingId);
+
+function initializeReactGA() {
+    ReactGA.initialize(trackingId);
+    ReactGA.pageview('/homepage');
+}
 
 const MAX_IMAGES = 39;
 
