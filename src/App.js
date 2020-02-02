@@ -7,14 +7,16 @@ import RedditIcon from "./icons/Reddit.js";
 import InstagramIcon from "./icons/Instagram.js";
 
 import ReactGA from 'react-ga';
+import createHistory from 'history/createBrowserHistory'
 
-const trackingId = "UA-138331555-1"; // Replace with your Google Analytics tracking ID
-//ReactGA.initialize(trackingId);
+const history = createHistory()
+ReactGA.initialize('UA-138331555-1');
+history.listen((location, action) => {
+    ReactGA.pageview(location.pathname + location.search);
+    console.log(location.pathname)
+});
 
-function initializeReactGA() {
-    ReactGA.initialize(trackingId);
-    ReactGA.pageview('/comic');
-}
+
 
 const MAX_IMAGES = 39;
 
