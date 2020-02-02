@@ -13,7 +13,7 @@ const trackingId = "UA-138331555-1"; // Replace with your Google Analytics track
 
 function initializeReactGA() {
     ReactGA.initialize(trackingId);
-    ReactGA.pageview('/homepage');
+    ReactGA.pageview('/comic');
 }
 
 const MAX_IMAGES = 39;
