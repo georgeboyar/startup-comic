@@ -7,20 +7,21 @@ import RedditIcon from "./icons/Reddit.js";
 import InstagramIcon from "./icons/Instagram.js";
 
 import ReactGA from 'react-ga';
-import createHistory from 'history/createBrowserHistory'
+//import createHistory from 'history/createBrowserHistory'
 
-const history = createHistory()
+//const history = createHistory()
 ReactGA.initialize('UA-138331555-1');
-history.listen((location, action) => {
-    ReactGA.pageview(location.pathname + location.search);
-    console.log(location.pathname)
-});
+//history.listen((location, action) => {
+//    ReactGA.pageview(location.pathname + location.search);
+//    console.log(location.pathname)
+//});
 
 
 
 const MAX_IMAGES = 39;
 
 function IndividualComic() {
+  ReactGA.pageview('/comics');
   const params = useParams();
   var currentComicId = parseInt(params.comicId, 10);
   {
