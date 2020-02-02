@@ -21,7 +21,6 @@ ReactGA.initialize('UA-138331555-1');
 const MAX_IMAGES = 39;
 
 function IndividualComic() {
-  ReactGA.pageview('/comics');
   const params = useParams();
   var currentComicId = parseInt(params.comicId, 10);
   {
@@ -37,6 +36,7 @@ function IndividualComic() {
         src={`/comics/comic${currentComicId}.png`}
         style={{ maxWidth: "900px" }}
         alt="So It Begins"
+        ReactGA.pageview('/comic/${currentComicId}');
       />
       <div>
         <ul>
