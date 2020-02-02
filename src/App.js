@@ -29,6 +29,7 @@ function IndividualComic() {
     (currentComicId < 1 ) &&
       (currentComicId = 1);
   }
+  ReactGA.pageview('/comic/${currentComicId}');
   return (
     <section>
       <img
@@ -36,7 +37,6 @@ function IndividualComic() {
         src={`/comics/comic${currentComicId}.png`}
         style={{ maxWidth: "900px" }}
         alt="So It Begins"
-        ReactGA.pageview('/comic/${currentComicId}');
       />
       <div>
         <ul>
