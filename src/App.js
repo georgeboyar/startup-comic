@@ -18,7 +18,7 @@ ReactGA.initialize('UA-138331555-1');
 
 
 
-const MAX_IMAGES = 39;
+const MAX_IMAGES = 40;
 
 function IndividualComic() {
   const params = useParams();
