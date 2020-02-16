@@ -1,4 +1,6 @@
 import React, { Fragment } from "react";
+import Popup from "reactjs-popup";
+import {render} from 'react-dom';
 import { BrowserRouter, Route, useParams, Link } from "react-router-dom";
 import "./App.css";
 import TwitterIcon from "./icons/Twitter.js";
@@ -16,9 +18,13 @@ ReactGA.initialize('UA-138331555-1');
 //    console.log(location.pathname)
 //});
 
+// const CustomButton = React.forwardRef(({open , ...props}, ref) => (
+//   <button className="button" ref={ref} {...props}>
+//     Trigger - {props.open ? 'Opened' : 'Closed'}
+//   </button>
+// ));
 
-
-const MAX_IMAGES = 40;
+const MAX_IMAGES = 41;
 
 function IndividualComic() {
   const params = useParams();
@@ -29,7 +35,6 @@ function IndividualComic() {
     (currentComicId < 1 ) &&
       (currentComicId = 1);
   }
-  ReactGA.pageview('/comic/${currentComicId}');
   return (
     <section>
       <img
@@ -96,6 +101,7 @@ function IndividualComic() {
       </div>
     </section>
   );
+  ReactGA.pageview('/comic/${currentComicId}');
 }
 
 function App() {
@@ -119,6 +125,7 @@ function App() {
             <IndividualComic />
           </Route>
         </nav>
+
         <footer>
           <ul>
             <li>
