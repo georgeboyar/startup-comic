@@ -1,0 +1,18 @@
+[
+  {
+    "id":42,
+    "role": "George",
+    "question":"Has anything like this ever happened to you?",
+    "story":"This reminds me of when I learned first hand that the best way to make money on the internet is to sell things to other people trying to make money on the internet. I was extremely gullible in college. I still am. Or maybe I just want to always see the best in people. Regardless, I purchased a $1,000 digital course that--guaranteed--would help me create a passive income stream. The thing is, it would. It was a great product before online mastercourses were a big thing and the content was excellent. If you really did all the steps, you would damn sure have a side business by the end of it. The thing is, it’s really freaking hard and scary to start something that is valuable enough that someone will pay you for it. Long story short, my commitment went the way of most new year's resolutions. I would be willing to bet another $1,000 that the courses completion metrics were even worse. Thankfully, I was able to get a refund.",
+    "profilePhoto":"headshots-for-stories_male1.png",
+    "leftAlign":true
+  },
+  {
+    "id":42,
+    "role": "Lauren",
+    "question":"What is something most people do not realize about 'free' content?",
+    "story":"What most people do not realize is that if you are reading content for free, it’s not really free. The currency you are exchanging for the content is your time & attention. Websites sell your focus as a product to other businesses. This is one of the reasons that there is so much bad advice on the internet. The incentive is to keep your attention -- not to answer your question accurately. Like it or not, we are more likely to spend time on things that reinforce our existing beliefs. In this case -- that it’s really easy to start a company.",
+    "profilePhoto":"headshots-for-stories_female1.png",
+    "leftAlign":false
+  }
+]

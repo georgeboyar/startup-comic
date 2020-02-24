@@ -1,4 +1,6 @@
 import React, { Fragment } from "react";
+import Stories from './data/stories.json';
+import AuthorNotes from './data/notes.json';
 import Popup from "reactjs-popup";
 import {render} from 'react-dom';
 import { BrowserRouter, Route, useParams, Link } from "react-router-dom";
@@ -7,24 +9,10 @@ import TwitterIcon from "./icons/Twitter.js";
 import FacebookIcon from "./icons/Facebook.js";
 import RedditIcon from "./icons/Reddit.js";
 import InstagramIcon from "./icons/Instagram.js";
-
 import ReactGA from 'react-ga';
-//import createHistory from 'history/createBrowserHistory'
-
-//const history = createHistory()
-ReactGA.initialize('UA-138331555-1');
-//history.listen((location, action) => {
-//    ReactGA.pageview(location.pathname + location.search);
-//    console.log(location.pathname)
-//});
-
-// const CustomButton = React.forwardRef(({open , ...props}, ref) => (
-//   <button className="button" ref={ref} {...props}>
-//     Trigger - {props.open ? 'Opened' : 'Closed'}
-//   </button>
-// ));
 
 const MAX_IMAGES = 42;
+ReactGA.initialize('UA-138331555-1');
 
 function IndividualComic() {
   const params = useParams();
@@ -35,14 +23,33 @@ function IndividualComic() {
     (currentComicId < 1 ) &&
       (currentComicId = 1);
   }
+
   return (
-    <section>
-      <img
-        id="comic"
-        src={`/comics/comic${currentComicId}.png`}
-        style={{ maxWidth: "900px" }}
-        alt="So It Begins"
-      />
+    <section style = {{lineHeight:"23px"}}>
+    {AuthorNotes.map((authorNote, index)=>{
+      if (authorNote.id == currentComicId){
+        return (
+          <div class="tooltip">
+            <img
+              id="comic"
+              src={`/comics/comic${currentComicId}.png`}
+              style={{ maxWidth: "900px" }}
+              alt="So It Begins"
+              tooltip = "Hello"
+            />
+          <span class="tooltiptext">{authorNote.comment}</span></div>
+        );
+      }
+    else {
+      return (
+        <img
+          id="comic"
+          src={`/comics/comic${currentComicId}.png`}
+          style={{ maxWidth: "900px" }}
+          alt="So It Begins"
+        />
+      )}
+    })}
       <div>
         <ul>
           <li>
@@ -99,9 +106,58 @@ function IndividualComic() {
             </li>
         </ul>
       </div>
+      {Stories.map((storyDetail, index)=>{
+        if (storyDetail.id == currentComicId && storyDetail.leftAlign == false){
+          return (
+            <div style = {{margin: "3%", textAlign: "left"}}>
+              <ul>
+                <li>
+                  <h3>{storyDetail.question}</h3>
+                  <p>{storyDetail.story}</p>
+                </li>
+                <li style = {{margin: "auto"}}>
+                  <img
+                    id="profile_photo"
+                    src ={`/profilePhotos/${storyDetail.profilePhoto}`}
+                    style ={{maxWidth: "150px", minWidth: "100px"}}
+                  />
+                  <h3 style = {{  textAlign: "center"}}>{storyDetail.role}</h3>
+                </li>
+              </ul>
+            </div>
+          )
+        } if (storyDetail.id == currentComicId && storyDetail.leftAlign == true){
+          return (
+            <div style = {{margin: "3%", textAlign: "left"}}>
+              <ul>
+                <li style = {{margin: "auto"}}>
+                  <img
+                    id="profile_photo"
+                    src ={`/profilePhotos/${storyDetail.profilePhoto}`}
+                    style ={{maxWidth: "150px", minWidth: "100px"}}
+                  />
+                  <h3 style = {{  textAlign: "center"}}>{storyDetail.role}</h3>
+                </li>
+                <li>
+                  <h3>{storyDetail.question}</h3>
+                  <p>{storyDetail.story}</p>
+                </li>
+              </ul>
+            </div>
+          )
+        }
+      })}
+      <a href ={`https://docs.google.com/forms/d/e/1FAIpQLSfckTV_odSTU8Z186FugH_aSXftiyp9qcYWkZ95Z6t6YNbZhw/viewform?usp=pp_url&entry.19004455=comic${currentComicId}`} target="_blank">
+        <img
+          id="Next"
+          src={require("./icons/featured-button.png")}
+          style ={{maxWidth: "700px"}}
+          alt="Next"
+        />
+      </a>
     </section>
   );
-  ReactGA.pageview('/comic/${currentComicId}');
+  ReactGA.pageview(params.comicId);
 }
 
 function App() {
@@ -126,7 +182,7 @@ function App() {
           </Route>
         </nav>
 
-        <footer>
+      <footer>
           <ul>
             <li>
               <a href="https://www.instagram.com/unicorndroppingz/">
