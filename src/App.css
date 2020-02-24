@@ -179,12 +179,12 @@ button:focus {
   padding: 1%;
   border-radius: 6px;
   font-family: Schoolbell;
-  font-size: 20px;
-  line-height: 30px;
+  font-size:1.2rem;
+  line-height: 1.5rem;
   opacity: 0;
 
   bottom: 5%;
-  left: -10%;
+  left: 2%;
 
 
   /* Position the tooltip text - see examples below! */
@@ -210,13 +210,13 @@ button:focus {
 
 h3 {
   font-family: Schoolbell;
-  font-size:28px;
-  line-height: 34px;
+  font-size:2rem;
+  line-height: 3.1rem;
 }
 
 p {
   font-family: Schoolbell;
   font-weight: lighter;
-  font-size:22px;
-  line-height: 25px;
+  font-size:1.2rem;
+  line-height: 1.5rem;
 }
