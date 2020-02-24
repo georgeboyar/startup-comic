@@ -145,45 +145,6 @@ button:focus {
   outline: none;
 }
 
-@media screen and (max-device-width: 900px) {
-  h1 {
-    font-size: 6rem;
-  }
-  section img {
-    max-width: 98%;
-  }
-  header {
-    margin: 5vh;
-  }
-  section {
-    margin: 0;
-  }
-  .icon {
-    max-width: 3vh;
-  }
-
-  /* Tooltip text */
-  .tooltip .tooltiptext {
-    visibility: hidden;
-    background-color: black;
-    color: white;
-    max-width: 65%;
-    text-align: center;
-    padding: 1%;
-    border-radius: 6px;
-    font-family: schoolbellregular;
-    opacity: 0;
-
-    bottom: 10%;
-    left: 2%;
-
-
-    /* Position the tooltip text - see examples below! */
-    position: absolute;
-    z-index: 1;
-  }
-}
-
 /* Tooltip container */
 .tooltip {
   position: relative;
@@ -251,4 +212,43 @@ p {
     font-weight: normal;
     font-style: normal;
 
+}
+
+@media screen and (max-device-width: 900px) {
+  h1 {
+    font-size: 6rem;
+  }
+  section img {
+    max-width: 98%;
+  }
+  header {
+    margin: 5vh;
+  }
+  section {
+    margin: 0;
+  }
+  .icon {
+    max-width: 3vh;
+  }
+
+  /* Tooltip text */
+  .tooltip .tooltiptext {
+    visibility: hidden;
+    background-color: black;
+    color: white;
+    max-width: 65%;
+    text-align: center;
+    padding: 1%;
+    border-radius: 6px;
+    font-family: schoolbellregular;
+    opacity: 0;
+
+    bottom: 10%;
+    left: 2%;
+
+
+    /* Position the tooltip text - see examples below! */
+    position: absolute;
+    z-index: 1;
+  }
 }
