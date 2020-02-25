@@ -157,7 +157,7 @@ function IndividualComic() {
       </a>
     </section>
   );
-  ReactGA.pageview(params.comicId);
+  ReactGA.pageview(`${params.comicId}`);
 }
 
 function App() {
