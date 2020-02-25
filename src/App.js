@@ -15,6 +15,8 @@ const MAX_IMAGES = 42;
 ReactGA.initialize('UA-138331555-1');
 
 function IndividualComic() {
+  ReactGA.pageview(`${params.comicId}`);
+  ReactGA.pageview(`backup`);
   const params = useParams();
   var currentComicId = parseInt(params.comicId, 10);
   {
@@ -157,7 +159,6 @@ function IndividualComic() {
       </a>
     </section>
   );
-  ReactGA.pageview(`${params.comicId}`);
 }
 
 function App() {
