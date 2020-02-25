@@ -16,7 +16,6 @@ ReactGA.initialize('UA-138331555-1');
 
 function IndividualComic() {
   const params = useParams();
-  ReactGA.pageview(`${params.comicId}`);
   ReactGA.pageview(`backup`);
   var currentComicId = parseInt(params.comicId, 10);
   {
@@ -25,7 +24,7 @@ function IndividualComic() {
     (currentComicId < 1 ) &&
       (currentComicId = 1);
   }
-
+  ReactGA.pageview(`${currentComicId}`);
   return (
     <section style = {{lineHeight:"23px"}}>
     {AuthorNotes.map((authorNote, index)=>{
