@@ -15,9 +15,9 @@ const MAX_IMAGES = 42;
 ReactGA.initialize('UA-138331555-1');
 
 function IndividualComic() {
+  const params = useParams();
   ReactGA.pageview(`${params.comicId}`);
   ReactGA.pageview(`backup`);
-  const params = useParams();
   var currentComicId = parseInt(params.comicId, 10);
   {
     (isNaN(currentComicId) || currentComicId > MAX_IMAGES ) &&
