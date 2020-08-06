@@ -167,6 +167,7 @@ function App() {
         <header>
           {/* <h1 style={{ fontSize: "5vw" }}>Startup Comic</h1> */}
           <meta name="archive-binge" content="ab_5f2c1624625e18.81262488" />
+          <script>"RO31JJ4g7b7c"</script>
           <img
             id="banner"
             src={`/cover v3.png`}
