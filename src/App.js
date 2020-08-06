@@ -166,6 +166,7 @@ function App() {
       <BrowserRouter>
         <header>
           {/* <h1 style={{ fontSize: "5vw" }}>Startup Comic</h1> */}
+          <meta name="archive-binge" content="ab_5f2c1624625e18.81262488" />
           <img
             id="banner"
             src={`/cover v3.png`}
