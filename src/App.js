@@ -11,7 +11,7 @@ import RedditIcon from "./icons/Reddit.js";
 import InstagramIcon from "./icons/Instagram.js";
 import ReactGA from 'react-ga';
 
-const MAX_IMAGES = 76;
+const MAX_IMAGES = 82;
 ReactGA.initialize('UA-138331555-1');
 
 function IndividualComic() {
